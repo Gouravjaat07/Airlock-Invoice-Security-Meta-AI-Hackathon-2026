@@ -1,0 +1,30 @@
+# Airlock deterministic policy configuration (versioned).
+#
+# Rule IDs R1-R10 and their meanings are fixed security invariants; this
+# file carries only thresholds and metadata. Any material rule change
+# requires a version bump, an ADR entry, and updated tests.
+
+[meta]
+version = "2.0.0"
+description = "Phase 2 deterministic policy: R1-R10 with fail-closed aggregation"
+
+[rules]
+# R5: default per-invoice cap (decimal string, major currency units).
+# A vendor-specific cap in the registry overrides this default.
+per_invoice_cap_default = "10000.00"
+
+# R3/R5: decimal places enforced for monetary values.
+currency_precision = 2
+
+# R6: due date must be on/after issue date and within this many days after it.
+due_date_max_days = 120
+
+# R7: accepted SAM count range (inclusive) before tolerance comparison.
+sam_count_min = 0
+sam_count_max = 100000
+
+# R7: default count tolerance when the catalogue item defines none.
+catalogue_tolerance_default = 0
+
+# Vendor bank-change cooling-off interval (hours) before activation.
+bank_change_cooldown_hours = 24

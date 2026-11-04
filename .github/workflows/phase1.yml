@@ -1,0 +1,50 @@
+# Airlock Phase 1 verification (offline only).
+#
+# Never runs live/billable model requests and needs no secrets. Live smoke
+# tests stay a manual, explicitly opted-in local action
+# (`--live --allow-billable`) and must never be added to this workflow.
+name: phase1
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        python-version: ["3.11", "3.12", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dev dependencies
+        run: python -m pip install -e ".[dev]"
+      - name: Lint (ruff, pyflakes rules)
+        run: |
+          python -m pip install ruff
+          python -m ruff check scripts tests
+      - name: Compile check
+        run: python -m compileall -q scripts tests
+      - name: Test suite
+        run: python -m pytest -q -ra
+      - name: Coverage
+        run: |
+          python -m coverage run -m pytest -q
+          python -m coverage report
+      - name: Manifest contract
+        run: python scripts/validate_manifest.py eval/manifest.dev.template.json
+      - name: Secret hygiene
+        run: python scripts/check_secret_hygiene.py
+      - name: Offline orchestrator
+        run: python scripts/phase1_check.py --output-dir evidence
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase1-evidence-${{ matrix.os }}-py${{ matrix.python-version }}
+          path: evidence/

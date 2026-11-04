@@ -1,0 +1,53 @@
+[project]
+name = "airlock"
+version = "0.1.0"
+description = "Airlock: injection-resistant, multimodal accounts-payable assistant (Phase 1 tooling)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Airlock" }]
+# Phase 1 tooling is standard-library only. Phase 2 application runtime needs
+# the web/API stack below (installed for everyone; scripts/ stay stdlib-only).
+dependencies = [
+  "fastapi>=0.115,<0.155",
+  "pydantic>=2.9,<3",
+  "uvicorn>=0.30,<0.36",
+  "python-multipart>=0.0.12,<0.1",
+  "argon2-cffi>=23.1,<26",
+  # Phase 3: single sync HTTP client for provider adapters (pooled,
+  # timeouts, TLS verify). Already vendored + installed; no new stack.
+  "httpx>=0.27,<0.29",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.4.2",
+  "coverage>=7,<8",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.ruff.lint]
+# Minimal, stable gate: pyflakes correctness only (no style churn).
+select = ["F"]
+
+[tool.coverage.run]
+source = ["app", "scripts"]
+branch = true
+omit = ["scripts/__pycache__/*", "app/__pycache__/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false

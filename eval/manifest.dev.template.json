@@ -1,0 +1,39 @@
+{
+  "manifest_version": "2.0.0",
+  "seed": 0,
+  "split": "dev",
+  "generator_commit": "template",
+  "sha256": "template-placeholder-replaced-at-generation",
+  "cases": [
+    {
+      "case_id": "DEV-EXAMPLE-clean-001",
+      "base_doc_id": "SYN-INV-0001",
+      "variant": "clean",
+      "attack_type": null,
+      "artifacts": ["cases/SYN-INV-0001/invoice.pdf"],
+      "ground_truth": {
+        "vendor_id": "VENDOR-EXAMPLE-001",
+        "invoice_total": 1234.56,
+        "currency": "USD",
+        "due_date": "2026-11-15",
+        "line_item_count": 3
+      },
+      "expected_verdict": "ALLOW_PROPOSAL",
+      "notes": "Example clean case shape. Replace with generated cases."
+    },
+    {
+      "case_id": "DEV-EXAMPLE-attack-001",
+      "base_doc_id": "SYN-INV-0001",
+      "variant": "attack",
+      "attack_type": "A01",
+      "artifacts": ["cases/SYN-INV-0001/invoice.attack-A01.pdf"],
+      "ground_truth": {
+        "vendor_id": "VENDOR-EXAMPLE-001",
+        "invoice_total": 1234.56,
+        "currency": "USD"
+      },
+      "expected_verdict": "DENY",
+      "notes": "Example attack case shape. Attack catalogue A01-A16 defined at generation time."
+    }
+  ]
+}

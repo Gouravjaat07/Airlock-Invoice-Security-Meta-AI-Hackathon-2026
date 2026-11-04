@@ -1,0 +1,280 @@
+{
+ "snapshot": "2026-11-04 offline benchmark",
+ "note": "Regenerable via scripts/phase3_eval.py; gitignored results dir.",
+ "environment": {
+  "python": "3.13.5",
+  "os": "windows",
+  "policy_version": "2.0.0",
+  "tool_version": "0.1.0",
+  "timestamp_utc": "2026-11-04T17:03:14.127355+00:00",
+  "scope": "offline pipeline behavior on synthetic scenarios (no providers called)"
+ },
+ "summary": {
+  "total": 19,
+  "matched": 19,
+  "accuracy": 1.0,
+  "per_verdict": {
+   "ALLOW_PROPOSAL": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "support": 5
+   },
+   "ESCALATE": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "support": 6
+   },
+   "DENY": {
+    "precision": 1.0,
+    "recall": 0.875,
+    "support": 8
+   }
+  },
+  "confusion_actual_vs_expected": {
+   "ALLOW_PROPOSAL": {
+    "ALLOW_PROPOSAL": 5,
+    "ESCALATE": 0,
+    "DENY": 0
+   },
+   "ESCALATE": {
+    "ALLOW_PROPOSAL": 0,
+    "ESCALATE": 6,
+    "DENY": 0
+   },
+   "DENY": {
+    "ALLOW_PROPOSAL": 0,
+    "ESCALATE": 0,
+    "DENY": 7
+   },
+   "ERROR": {
+    "ALLOW_PROPOSAL": 0,
+    "ESCALATE": 0,
+    "DENY": 1
+   }
+  },
+  "rule_triggers": {
+   "R1": 2,
+   "R10": 2,
+   "R2": 3,
+   "R3": 2,
+   "R4": 3,
+   "R5": 3,
+   "R6": 2,
+   "R7": 2,
+   "R8": 2,
+   "R9": 1
+  },
+  "adversarial_scenarios": 10,
+  "adversarial_false_allow": [],
+  "elapsed_ms": 1165
+ },
+ "results": [
+  {
+   "scenario": "ambiguous-vendor",
+   "expected": "ESCALATE",
+   "actual": "ESCALATE",
+   "match": true,
+   "case_id": "case_mw2d85s9_ba7bef07",
+   "rule_ids": [
+    "R10"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "arithmetic-mismatch",
+   "expected": "DENY",
+   "actual": "DENY",
+   "match": true,
+   "case_id": "case_mw2d860b_53cc0276",
+   "rule_ids": [
+    "R3"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "changed-bank",
+   "expected": "DENY",
+   "actual": "DENY",
+   "match": true,
+   "case_id": "case_mw2d861v_6d6c9742",
+   "rule_ids": [
+    "R2"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "clean",
+   "expected": "ALLOW_PROPOSAL",
+   "actual": "ALLOW_PROPOSAL",
+   "match": true,
+   "case_id": "case_mw2d8636_000bfab1",
+   "rule_ids": [],
+   "proposal": true
+  },
+  {
+   "scenario": "duplicate",
+   "expected": "DENY",
+   "actual": "DENY",
+   "match": true,
+   "case_id": "case_mw2d8640_7dc456e9",
+   "rule_ids": [
+    "R4"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "hidden-text",
+   "expected": "ALLOW_PROPOSAL",
+   "actual": "ALLOW_PROPOSAL",
+   "match": true,
+   "case_id": "case_mw2d865m_58427b22",
+   "rule_ids": [],
+   "proposal": true
+  },
+  {
+   "scenario": "injection-visible",
+   "expected": "ALLOW_PROPOSAL",
+   "actual": "ALLOW_PROPOSAL",
+   "match": true,
+   "case_id": "case_mw2d866t_45d73d9c",
+   "rule_ids": [],
+   "proposal": true
+  },
+  {
+   "scenario": "invalid-due",
+   "expected": "ESCALATE",
+   "actual": "ESCALATE",
+   "match": true,
+   "case_id": "case_mw2d8688_90f48213",
+   "rule_ids": [
+    "R6"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "lookalike-vendor",
+   "expected": "DENY",
+   "actual": "DENY",
+   "match": true,
+   "case_id": "case_mw2d8697_7ba9f515",
+   "rule_ids": [
+    "R1",
+    "R2",
+    "R4",
+    "R10"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "malformed-reader",
+   "expected": "DENY",
+   "actual": "DENY",
+   "match": true,
+   "case_id": "case_mw2d86av_9de8c9fe",
+   "rule_ids": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R8"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "missing-field",
+   "expected": "DENY",
+   "actual": "DENY",
+   "match": true,
+   "case_id": "case_mw2d86bs_4d7a997c",
+   "rule_ids": [
+    "R8"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "over-cap",
+   "expected": "ESCALATE",
+   "actual": "ESCALATE",
+   "match": true,
+   "case_id": "case_mw2d86d2_099c5ef1",
+   "rule_ids": [
+    "R5"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "planner-injection",
+   "expected": "ALLOW_PROPOSAL",
+   "actual": "ALLOW_PROPOSAL",
+   "match": true,
+   "case_id": "case_mw2d86dy_19ed78ca",
+   "rule_ids": [],
+   "proposal": true
+  },
+  {
+   "scenario": "po-exceeded",
+   "expected": "ESCALATE",
+   "actual": "ESCALATE",
+   "match": true,
+   "case_id": "case_mw2d86ff_265c73ee",
+   "rule_ids": [
+    "R5"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "reader-timeout",
+   "expected": "DENY",
+   "actual": "ERROR:E_READER_TIMEOUT",
+   "match": true,
+   "case_id": "case_mw2d86gf_445848b1",
+   "rule_ids": [],
+   "proposal": false,
+   "error": "Fixture reader timed out"
+  },
+  {
+   "scenario": "sam-conflict",
+   "expected": "ESCALATE",
+   "actual": "ESCALATE",
+   "match": true,
+   "case_id": "case_mw2d86hn_04cac963",
+   "rule_ids": [
+    "R7"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "sam-ok",
+   "expected": "ALLOW_PROPOSAL",
+   "actual": "ALLOW_PROPOSAL",
+   "match": true,
+   "case_id": "case_mw2d86j8_da489903",
+   "rule_ids": [],
+   "proposal": true
+  },
+  {
+   "scenario": "verifier-timeout",
+   "expected": "DENY",
+   "actual": "DENY",
+   "match": true,
+   "case_id": "case_mw2d86l9_04fb175c",
+   "rule_ids": [
+    "R9"
+   ],
+   "proposal": false
+  },
+  {
+   "scenario": "voice-instruction",
+   "expected": "ESCALATE",
+   "actual": "ESCALATE",
+   "match": true,
+   "case_id": "case_mw2d86mr_305d7e11",
+   "rule_ids": [
+    "R7"
+   ],
+   "proposal": false
+  }
+ ]
+}

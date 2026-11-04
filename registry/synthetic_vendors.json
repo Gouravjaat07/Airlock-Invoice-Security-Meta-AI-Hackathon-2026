@@ -1,0 +1,71 @@
+{
+  "_comment": "SYNTHETIC demo vendors for Airlock Phase 2. Fictional names, fictional bank references. Bank references are transient inputs: only HMAC fingerprints are stored (computed at seed time with AIRLOCK_BANK_HASH_KEY). Never add real supplier data.",
+  "vendors": [
+    {
+      "vendor_id": "ven-acme-flour",
+      "name": "Acme Flour Co",
+      "bank_reference": "SYN-ACME-0001",
+      "per_invoice_cap": "10000.00",
+      "catalogue": [
+        {"item_id": "flour-25kg", "label": "Flour sack 25kg", "tolerance": 1},
+        {"item_id": "yeast-500g", "label": "Yeast pack 500g", "tolerance": 0}
+      ]
+    },
+    {
+      "vendor_id": "ven-harbor-ovens",
+      "name": "Harbor Ovens Ltd",
+      "bank_reference": "SYN-HARBOR-0002",
+      "per_invoice_cap": "8000.00",
+      "catalogue": [
+        {"item_id": "oven-tray-xl", "label": "Oven tray XL", "tolerance": 0}
+      ]
+    },
+    {
+      "vendor_id": "ven-harbor-oven",
+      "name": "Harbor Oven Ltd",
+      "bank_reference": "SYN-HARBOR-0003",
+      "per_invoice_cap": "8000.00",
+      "catalogue": [
+        {"item_id": "oven-tray-xl", "label": "Oven tray XL", "tolerance": 0}
+      ]
+    },
+    {
+      "vendor_id": "ven-dairy",
+      "name": "Bluebell Dairy Farms",
+      "bank_reference": "SYN-DAIRY-0004",
+      "per_invoice_cap": "2500.00",
+      "catalogue": [
+        {"item_id": "butter-10kg", "label": "Butter block 10kg", "tolerance": 2}
+      ]
+    }
+  ],
+  "purchase_orders": [
+    {
+      "po_id": "po-acme-1001",
+      "vendor_id": "ven-acme-flour",
+      "po_reference": "PO-1001",
+      "currency": "USD",
+      "original_amount": "5000.00",
+      "remaining_amount": "5000.00",
+      "status": "open"
+    },
+    {
+      "po_id": "po-acme-1002",
+      "vendor_id": "ven-acme-flour",
+      "po_reference": "PO-1002",
+      "currency": "USD",
+      "original_amount": "300.00",
+      "remaining_amount": "100.00",
+      "status": "open"
+    },
+    {
+      "po_id": "po-acme-1099",
+      "vendor_id": "ven-acme-flour",
+      "po_reference": "PO-1099",
+      "currency": "USD",
+      "original_amount": "900.00",
+      "remaining_amount": "0.00",
+      "status": "closed"
+    }
+  ]
+}

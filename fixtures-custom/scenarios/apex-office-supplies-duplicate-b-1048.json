@@ -1,0 +1,53 @@
+{
+  "attack_type": null,
+  "delivery_artifact": null,
+  "expected_verdict": "DENY",
+  "extraction": {
+    "bank_reference": "Apex Office Supplies Pvt. Ltd. | A/C 000123456789 | IFSC TEST0001234",
+    "currency": "INR",
+    "due_date": "2026-11-17",
+    "invoice_number": "INV-2026-1048",
+    "issue_date": "2026-11-02",
+    "line_items": [
+      {
+        "description": "Business Laptop (i5, 16GB RAM)",
+        "quantity": "2",
+        "unit_price": "55000.00"
+      },
+      {
+        "description": "Wireless Keyboard & Mouse",
+        "quantity": "2",
+        "unit_price": "2000.00"
+      },
+      {
+        "description": "USB-C Docking Station",
+        "quantity": "2",
+        "unit_price": "4500.00"
+      },
+      {
+        "description": "Office Accessories",
+        "quantity": "1",
+        "unit_price": "2000.00"
+      }
+    ],
+    "po_reference": null,
+    "subtotal": "125000.00",
+    "tax": "22500.00",
+    "total": "147500.00",
+    "vendor_name": "Apex Office Supplies Pvt. Ltd."
+  },
+  "invoice_artifact": "invoices/apex-office-supplies-duplicate-b-1048.pdf",
+  "name": "apex-office-supplies-duplicate-b-1048",
+  "notes": "Invoice B duplicate: same business identity as Apex INV-2026-1048 (SYN-INV-B-1048); separate PDF bytes; vendor unresolved by registry",
+  "reader_error": null,
+  "registration": {
+    "kind": "custom",
+    "registered_at": "2026-11-03T06:22:00.364079+00:00",
+    "source_sha256": "9cac5f8fdee2ba20c24bdc385e8572674424e534af83f4b77ca87f6bd74fb69a",
+    "tool": "app.cli fixtures register"
+  },
+  "sam": null,
+  "transcript": null,
+  "variant": "custom",
+  "voice_artifact": null
+}

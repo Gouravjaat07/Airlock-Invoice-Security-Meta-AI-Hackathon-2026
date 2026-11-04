@@ -1,0 +1,62 @@
+/* Airlock design tokens. White theme is mandatory: every page background
+   derives from --ak-bg (#ffffff). */
+
+:root {
+  --ak-bg: #ffffff;
+  --ak-surface: #ffffff;
+  --ak-subtle: #f6f8fa;
+  --ak-subtle-2: #eef2f5;
+  --ak-border: #e2e8f0;
+  --ak-border-strong: #cbd5e1;
+
+  --ak-text: #0f172a;
+  --ak-text-2: #334155;
+  --ak-text-3: #475569;
+  --ak-caption: #64748b;
+
+  --ak-accent: #0e7490;
+  --ak-accent-strong: #155e75;
+  --ak-accent-soft: #ecfeff;
+  --ak-accent-border: #a5f3fc;
+
+  --ak-success: #15803d;
+  --ak-success-bg: #f0fdf4;
+  --ak-success-border: #bbf7d0;
+  --ak-warning: #b45309;
+  --ak-warning-bg: #fffbeb;
+  --ak-warning-border: #fde68a;
+  --ak-danger: #b91c1c;
+  --ak-danger-bg: #fef2f2;
+  --ak-danger-border: #fecaca;
+  --ak-info: #1d4ed8;
+  --ak-info-bg: #eff6ff;
+  --ak-info-border: #bfdbfe;
+
+  --ak-focus: #0e7490;
+
+  --ak-font: -apple-system, blinkmacsystemfont, "Segoe UI", "Helvetica Neue",
+    arial, sans-serif;
+  --ak-mono: ui-monospace, sfmono-regular, "SF Mono", menlo, consolas,
+    monospace;
+
+  --ak-r-sm: 4px;
+  --ak-r: 6px;
+  --ak-r-lg: 10px;
+  --ak-r-full: 999px;
+
+  --ak-shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+  --ak-shadow: 0 4px 16px rgb(15 23 42 / 0.08);
+  --ak-shadow-lg: 0 12px 40px rgb(15 23 42 / 0.14);
+
+  --ak-space-1: 4px;
+  --ak-space-2: 8px;
+  --ak-space-3: 12px;
+  --ak-space-4: 16px;
+  --ak-space-5: 20px;
+  --ak-space-6: 24px;
+  --ak-space-8: 32px;
+  --ak-space-10: 40px;
+
+  --ak-sidebar-w: 240px;
+  --ak-content-max: 1160px;
+}

@@ -1,0 +1,32 @@
+{
+  "attack_type": "A09",
+  "delivery_artifact": null,
+  "expected_verdict": "ESCALATE",
+  "extraction": {
+    "bank_reference": "SYN-ACME-0001",
+    "currency": "USD",
+    "due_date": "2026-10-31",
+    "invoice_number": "INV-2026-0004",
+    "issue_date": "2026-10-01",
+    "line_items": [
+      {
+        "description": "Flour sack 25kg",
+        "quantity": "100",
+        "unit_price": "150.00"
+      }
+    ],
+    "po_reference": null,
+    "subtotal": "15000.00",
+    "tax": "0.00",
+    "total": "15000.00",
+    "vendor_name": "Acme Flour Co"
+  },
+  "invoice_artifact": "invoices/over-cap.pdf",
+  "name": "over-cap",
+  "notes": "Internally consistent but above the 10000 cap: R5.",
+  "reader_error": null,
+  "sam": null,
+  "transcript": null,
+  "variant": "attack",
+  "voice_artifact": null
+}

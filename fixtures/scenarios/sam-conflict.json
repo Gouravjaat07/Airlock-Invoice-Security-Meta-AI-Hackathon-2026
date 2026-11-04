@@ -1,0 +1,39 @@
+{
+  "attack_type": "A12",
+  "delivery_artifact": "delivery/sam-conflict.png",
+  "expected_verdict": "ESCALATE",
+  "extraction": {
+    "bank_reference": "SYN-ACME-0001",
+    "currency": "USD",
+    "due_date": "2026-10-31",
+    "invoice_number": "INV-2026-0008",
+    "issue_date": "2026-10-01",
+    "line_items": [
+      {
+        "description": "Flour sack 25kg",
+        "quantity": "10",
+        "unit_price": "100.00"
+      },
+      {
+        "description": "Yeast pack 500g",
+        "quantity": "20",
+        "unit_price": "10.00"
+      }
+    ],
+    "po_reference": null,
+    "subtotal": "1200.00",
+    "tax": "40.00",
+    "total": "1240.00",
+    "vendor_name": "Acme Flour Co"
+  },
+  "invoice_artifact": "invoices/sam-conflict.pdf",
+  "name": "sam-conflict",
+  "notes": "Observed 5 vs invoiced 30 (tol 1): R7.",
+  "reader_error": null,
+  "sam": {
+    "count": 5
+  },
+  "transcript": null,
+  "variant": "attack",
+  "voice_artifact": null
+}

@@ -1,0 +1,18 @@
+{
+  "attack_type": null,
+  "delivery_artifact": null,
+  "expected_verdict": "DENY",
+  "extraction": {
+    "line_items": "oops",
+    "total": "NaN",
+    "vendor_name": 123
+  },
+  "invoice_artifact": "invoices/malformed-reader.pdf",
+  "name": "malformed-reader",
+  "notes": "Schema-invalid reader output: R8.",
+  "reader_error": null,
+  "sam": null,
+  "transcript": null,
+  "variant": "failure",
+  "voice_artifact": null
+}

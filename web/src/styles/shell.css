@@ -1,0 +1,226 @@
+/* Application shell: sidebar, topbar, content, login. White throughout. */
+
+.ak-shell {
+  display: grid;
+  grid-template-columns: var(--ak-sidebar-w) 1fr;
+  min-height: 100vh;
+  background: var(--ak-bg);
+}
+
+.ak-side {
+  border-right: 1px solid var(--ak-border);
+  background: var(--ak-surface);
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.ak-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 8px 16px;
+  font-size: 18px;
+  font-weight: 750;
+  color: var(--ak-text);
+  letter-spacing: -0.01em;
+}
+.ak-brand:hover {
+  text-decoration: none;
+}
+.ak-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--ak-accent);
+  color: #fff;
+  flex: none;
+}
+
+.ak-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ak-nav-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ak-caption);
+  padding: 12px 10px 4px;
+}
+.ak-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--ak-r);
+  color: var(--ak-text-2);
+  font-size: 14px;
+  font-weight: 550;
+}
+.ak-nav a:hover {
+  text-decoration: none;
+  background: var(--ak-subtle);
+}
+.ak-nav a.ak-active {
+  background: var(--ak-accent-soft);
+  color: var(--ak-accent-strong);
+  font-weight: 650;
+}
+
+.ak-side-foot {
+  margin-top: auto;
+  padding: 12px 8px 0;
+  border-top: 1px solid var(--ak-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ak-session-line {
+  font-size: 12.5px;
+  color: var(--ak-caption);
+  overflow-wrap: anywhere;
+}
+
+.ak-main {
+  min-width: 0;
+  padding: 28px 32px 56px;
+}
+.ak-main-inner {
+  max-width: var(--ak-content-max);
+  margin: 0 auto;
+}
+
+.ak-topbar {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ak-border);
+  background: var(--ak-surface);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.ak-iconbtn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--ak-border);
+  border-radius: var(--ak-r);
+  background: var(--ak-surface);
+  color: var(--ak-text);
+  cursor: pointer;
+}
+.ak-iconbtn:hover {
+  background: var(--ak-subtle);
+}
+
+.ak-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(15 23 42 / 0.45);
+  z-index: 60;
+}
+.ak-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(300px, 84vw);
+  background: var(--ak-surface);
+  z-index: 61;
+  padding: 16px 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+@media (max-width: 920px) {
+  .ak-shell {
+    grid-template-columns: 1fr;
+  }
+  .ak-side {
+    display: none;
+  }
+  .ak-topbar {
+    display: flex;
+  }
+  .ak-main {
+    padding: 20px 16px 48px;
+  }
+}
+
+/* -- login ---------------------------------------------------------- */
+
+.ak-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--ak-bg);
+}
+.ak-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--ak-surface);
+  border: 1px solid var(--ak-border);
+  border-radius: var(--ak-r-lg);
+  box-shadow: var(--ak-shadow);
+  padding: 32px 30px;
+}
+.ak-login-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.ak-login-brand .ak-brand-mark {
+  width: 38px;
+  height: 38px;
+}
+.ak-login-sub {
+  color: var(--ak-text-3);
+  font-size: 14px;
+  margin: 6px 0 22px;
+}
+.ak-login-foot {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ak-border);
+  font-size: 12.5px;
+  color: var(--ak-caption);
+}
+
+/* -- boot splash ----------------------------------------------------- */
+
+.ak-boot {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ak-bg);
+}
+.ak-boot-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ak-text-3);
+  font-size: 14px;
+  font-weight: 600;
+}

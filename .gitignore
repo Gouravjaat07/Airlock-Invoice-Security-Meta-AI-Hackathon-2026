@@ -1,0 +1,72 @@
+# --- Airlock secrets: never commit real credentials ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+secrets.json
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+pytest-of-*/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# --- Node (future web dashboard) ---
+node_modules/
+
+# --- Model weights and large artifacts (never commit) ---
+models/
+weights/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.wav
+*.mp4
+*.mov
+uploads/
+artifacts/
+data/
+
+# Phase 2 synthetic fixtures ARE committed (tiny, deterministic, synthetic).
+!fixtures/**/*.wav
+!fixtures/**/*.mp4
+
+# --- Local Phase 1 evidence (may contain host-specific paths) ---
+results/
+!results/phase1/.gitkeep
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Local scratch (never commit; regenerable or disposable) ---
+tmp*/
+tmp-*/
+probe_*/
+pip-build-tracker-*/
+pip-download-*/
+pip-ephem-wheel-cache-*/
+pip-install-*/
+pytest-of-Dell/
+.demo/
+.wheels/
+*.bak
+inspect_db_tmp.py

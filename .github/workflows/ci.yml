@@ -1,0 +1,75 @@
+# Airlock offline CI (backend + frontend + evals). Never runs live/billable
+# model requests and needs no secrets. Live smokes stay manual local-only.
+#
+# Action pinning: tags below SHOULD be pinned to full commit SHAs before
+# release. Resolve with (outside the sandbox):
+#   git ls-remote https://github.com/actions/checkout.git refs/tags/v4
+# then replace `actions/checkout@v4` with `actions/checkout@<sha>  # v4`.
+# Repeat for setup-python, setup-node, upload-artifact. Re-pin quarterly.
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        python-version: ["3.11", "3.12", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Lint (ruff over app, scripts, tests)
+        run: |
+          python -m pip install ruff
+          python -m ruff check app scripts tests
+      - name: Tests (offline)
+        run: python -m pytest -q -p no:cacheprovider --basetemp=pytest-of-ci
+      - name: Fixture drift check
+        run: python scripts/make_fixtures.py --check
+      - name: Secret hygiene
+        run: python scripts/check_secret_hygiene.py
+      - name: Verdict eval
+        run: python scripts/phase3_eval.py --output-dir evidence/phase3
+      - name: Phase5 eval (offline parts)
+        run: python scripts/phase5_eval.py
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-evidence-${{ matrix.os }}-py${{ matrix.python-version }}
+          path: evidence/
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Tests
+        run: npm test
+      - name: Build
+        run: npm run build

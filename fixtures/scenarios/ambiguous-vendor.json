@@ -1,0 +1,32 @@
+{
+  "attack_type": "A14",
+  "delivery_artifact": null,
+  "expected_verdict": "ESCALATE",
+  "extraction": {
+    "bank_reference": "SYN-HARBOR-0002",
+    "currency": "USD",
+    "due_date": "2026-10-31",
+    "invoice_number": "INV-2026-0006",
+    "issue_date": "2026-10-01",
+    "line_items": [
+      {
+        "description": "Oven tray XL",
+        "quantity": "2",
+        "unit_price": "120.00"
+      }
+    ],
+    "po_reference": null,
+    "subtotal": "240.00",
+    "tax": "0.00",
+    "total": "240.00",
+    "vendor_name": "Harbor Ovens Ltd"
+  },
+  "invoice_artifact": "invoices/ambiguous-vendor.pdf",
+  "name": "ambiguous-vendor",
+  "notes": "Exact match plus a 1-edit lookalike in registry: R10.",
+  "reader_error": null,
+  "sam": null,
+  "transcript": null,
+  "variant": "ambiguous",
+  "voice_artifact": null
+}
