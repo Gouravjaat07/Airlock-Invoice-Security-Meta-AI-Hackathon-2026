@@ -36,7 +36,7 @@ jobs:
           python -m pip install ruff
           python -m ruff check app scripts tests
       - name: Tests (offline)
-        run: python -m pytest -q -p no:cacheprovider --basetemp=pytest-of-ci
+        run: python -m pytest -q -p no:cacheprovider --basetemp "${{ runner.temp }}/pytest-of-ci"
       - name: Fixture drift check
         run: python scripts/make_fixtures.py --check
       - name: Secret hygiene
