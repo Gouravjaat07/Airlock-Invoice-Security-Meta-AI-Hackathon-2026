@@ -1,0 +1,5 @@
+# Preserve byte-exact generated binary fixtures across operating systems.
+fixtures/**/*.pdf -text
+fixtures/**/*.png -text
+fixtures/**/*.wav -text
+fixtures/**/*.mp4 -text
