@@ -24,10 +24,10 @@ tool, a PDF summarizer, or a chatbot: it is a financial control system in
 which AI output is treated as untrusted input from the first byte to the
 final verdict.
 
-**Live Demo: [AirLock Live Demo](https://youtu.be/Cf2HFNPz_vI)
-
 **Evaluating Airlock? Start here:** [Evaluator Quick Path](#evaluator-quick-path)
 → [docs/EVALUATOR_GUIDE.md](docs/EVALUATOR_GUIDE.md) (five minutes, no keys).
+
+## Live Demo: [AirLock Live Demo](https://youtu.be/Cf2HFNPz_vI)
 
 ## Contents
 
